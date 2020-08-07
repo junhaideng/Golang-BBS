@@ -3,6 +3,8 @@
 
 <hr/>
 
+> 部分接口尚未实现
+
 ### 系列项目
 #### 前端
 - [bbs](https://github.com/Cyberist-Edgar/bbs)
