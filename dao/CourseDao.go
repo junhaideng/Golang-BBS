@@ -44,7 +44,7 @@ func GetCourseBySchoolAndType(school string, typ string) ([]*courseInfo, error) 
 }
 
 func FindCourseById(id string) (*model.Course, error) {
-	var course *model.Course
+	var course = &model.Course{}
 	if err := DB.Model(&model.Course{}).First(&course, id).Error; err != nil {
 		return nil, err
 	}

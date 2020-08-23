@@ -11,7 +11,7 @@ func FindAllArticles() ([]*model.Article, error) {
 }
 
 func FindArticleById(id string) (*model.Article, error) {
-	var article *model.Article
+	var article = &model.Article{}
 	if err := DB.Model(&model.Article{}).Where("id = ?", id).Find(article).Error; err != nil {
 		return nil, err
 	}

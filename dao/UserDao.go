@@ -12,9 +12,9 @@ var (
 
 // 更具用户名查找用户，返回User类型的引用
 func FindUserByUsername(username string) (*model.User, error) {
-	var user *model.User
-	if err := DB.Model(&model.User{}).Find(&user, "username = ?", username).Error; err != nil {
-		return nil, err
+	var user = &model.User{}
+	if err := DB.Model(&model.User{}).Find(user, "username = ?", username).Error; err != nil {
+		return nil, ErrorUserNotExist
 	}
 	return user, nil
 }
