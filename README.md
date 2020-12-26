@@ -2,6 +2,7 @@
 
 > 此为后端项目，前端Vue项目见 [Golang-Vue-BBS](https://github.com/Cyberist-Edgar/Golang-Vue-BBS)
 
+
 首先需要在config目录下进行相应的配置，其中`database`，`baidu key`，以及`邮箱`必须进行配置
 ```yaml
 # 数据库配置
