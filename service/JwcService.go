@@ -72,9 +72,7 @@ func GetJwcNotice(c *gin.Context) {
 	//for _, item := range notice.Channel.Item[:10] {
 	//	insertJwcNotice(item)
 	//}
-	c.JSON(http.StatusOK, gin.H{
-		"data": notice.Channel.Item[:10],
-	})
+	c.JSON(http.StatusOK, notice.Channel.Item[:10])
 }
 
 // 将查询到的信息插入到数据库

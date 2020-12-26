@@ -50,6 +50,7 @@ func AuthMiddleware() gin.HandlerFunc {
 
 		// 如果存在
 		c.Set("user", user)
+		c.Set("username", user.Username)
 		c.Next()
 
 	}

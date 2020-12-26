@@ -44,7 +44,7 @@ func GetCourseBySchoolAndType(school string, typ string) ([]*courseInfo, error) 
 }
 
 func FindCourseById(id string) (*model.Course, error) {
-	var course *model.Course
+	var course = &model.Course{}
 	if err := DB.Model(&model.Course{}).First(&course, id).Error; err != nil {
 		return nil, err
 	}
@@ -61,9 +61,9 @@ func CreateCourseComment(comment *model.CourseComment) error {
 	return nil
 }
 
-func FindCourseCommentByCourseId(id string)([]*model.CourseComment, error){
+func FindCourseCommentByCourseId(id string) ([]*model.CourseComment, error) {
 	var comment []*model.CourseComment
-	if err := DB.Model(&model.CourseComment{}).Where("course_id = ?", id).Find(&comment).Error; err != nil{
+	if err := DB.Model(&model.CourseComment{}).Where("course_id = ?", id).Find(&comment).Error; err != nil {
 		return nil, err
 	}
 	return comment, nil

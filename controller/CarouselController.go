@@ -2,6 +2,7 @@ package controller
 
 import (
 	"bbs/dao"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"net/http"
@@ -20,7 +21,15 @@ func GetCarousel(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"id": carousel,
-	})
+	c.JSON(http.StatusOK, carousel)
+}
+
+func ServeCarousel(c *gin.Context) {
+	id := c.DefaultQuery("id", "1")
+	carousel, err := dao.GetCarouselById(id)
+	if err != nil {
+		return
+	}
+	fmt.Println(carousel)
+	c.File(carousel.Path)
 }

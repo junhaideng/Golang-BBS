@@ -14,3 +14,13 @@ func GetCarouselIdByNum(num string) ([]*carouselInfo, error) {
 	}
 	return carousel, nil
 }
+
+func GetCarouselById(id string) (*model.Carousel, error) {
+	var carousel = &model.Carousel{}
+
+	err := DB.Model(&model.Carousel{}).Where("id = ?", id).Scan(&carousel).Error
+	if err != nil {
+		return nil, err
+	}
+	return carousel, nil
+}
